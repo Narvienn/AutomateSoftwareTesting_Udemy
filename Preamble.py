@@ -1,0 +1,1 @@
+print("Lesson learned: don't press buttons whose function you're not sure of until you've read up on them. Amen.")
