@@ -1,6 +1,3 @@
-15-18 Booleans and IF statements
-
-
 # BOOLEANS - watch out:
 
 friends = ["Alice", "Bob"]
