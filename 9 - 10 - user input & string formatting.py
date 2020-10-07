@@ -1,5 +1,3 @@
-9 - 10 - user input & string formatting
-
 # HANDLING USER INPUT
 
 
