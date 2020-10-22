@@ -31,7 +31,7 @@ print(add(**numbers))   # The ** means "unpack all values onto the function para
 
 def apply(*args, operator): # This means: collect all args into a tuple + have an obligatory named argument at the end
     if operator == "*":
-        return multiply(*args) # need to unpack the tuple first so that it's not passed in whole
+        return multiply(*args) # need to unpack the tuple first so that it's not passed in whole (see function definition)
     elif operator == "+":
         return sum(args)
     else:
