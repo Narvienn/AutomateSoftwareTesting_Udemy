@@ -1,6 +1,6 @@
 # CLASS INHERITANCE
 
-#TODO: @classmethod & @staticmethod exercises + CLASS COMPOSITION
+#TODO: @classmethod & @staticmethod exercises
 
 
 class Device:
@@ -44,3 +44,57 @@ class Printer(Device):
 printer_ = Printer("Laserjet", "USB", 500)
 printer.printing(20)
 printer.disconnected()  # you can call methods from the parent class on the subclass object :)
+
+
+
+
+# CLASS COMPOSITION - using classes to build other classes - recommended & used more often than inheritance
+
+class Bookshelf:
+    def __init__(self, quantity):
+        self.quantity, = quantity
+
+    def __str__(self):
+        return f"Bookshelf with {self.quantity} books"
+
+
+shelf = Bookshelf(20)
+print(shelf)
+
+# when creating a derivative class - DON'T do something like this
+# NOTE: It breaches the Liskov substitution principle /a square is a rectangle but not all rectangles are squares/)
+
+class Book(Bookshelf):
+    def __init__(self, name, quantity):
+        super().__init__(quantity)  # this inherited attribute is not useful in a Book instance
+        self.name = name
+
+    def __str__(self):  # you are overwriting the Bookshelf __str__ method as it doesn't return what we need in a Book instance
+        return f"Book {self.name}"
+
+book = Book("Middlemarch", 120)
+print(book)
+
+
+# COMPOSITION - "an object is composed of other objects"
+
+class Bookshelf_:
+    def __init__(self, *books): # this will collect Book objects into a dict
+        self.books = books
+
+    def __str__(self):
+        return f"Bookshelf with {len(self.books)}."
+
+
+class Book_():  # no need to inherit from any other class
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f"Book {self.name}."
+
+
+book = Book("Vanity Fair")
+book2 = Book("Canterbury Tales")
+shelf_ = Bookshelf_(book, book2)    # that's the composition: objects are collected to create another object
+print(shelf_)
