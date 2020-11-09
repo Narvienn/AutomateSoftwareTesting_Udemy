@@ -15,4 +15,9 @@ print(sys.path) # prints a list of paths to folders where importable packages ar
 
 # NOTE: when creating a folder with importable files/modules, it's a good practice to create an __init__ .py file in that folder
 
-#TODO: Relative imports
+
+
+# RELATIVE IMPORTS
+# if you have a module folder and files in it, you can do e.g. from libs.operations import operator
+# the syntax: .mymodule means "current folder"
+
